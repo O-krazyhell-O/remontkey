@@ -1,0 +1,17 @@
+# Static HTML site: no build step required, publish the repository root.
+[build]
+  command = "echo 'No build step required'"
+  publish = "."
+
+# Server-side PHP sources can't run on Netlify; don't serve them publicly.
+[[redirects]]
+  from = "/config/*"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/includes/*"
+  to = "/404"
+  status = 404
+  force = true
